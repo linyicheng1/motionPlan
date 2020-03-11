@@ -295,6 +295,7 @@ CMakeFiles/path_finding.dir/src/path_finding.cpp.o: /opt/ros/kinetic/include/geo
 CMakeFiles/path_finding.dir/src/path_finding.cpp.o: /opt/ros/kinetic/include/geometry_msgs/Pose.h
 CMakeFiles/path_finding.dir/src/path_finding.cpp.o: /opt/ros/kinetic/include/geometry_msgs/PoseStamped.h
 CMakeFiles/path_finding.dir/src/path_finding.cpp.o: /opt/ros/kinetic/include/geometry_msgs/Quaternion.h
+CMakeFiles/path_finding.dir/src/path_finding.cpp.o: /opt/ros/kinetic/include/geometry_msgs/Vector3.h
 CMakeFiles/path_finding.dir/src/path_finding.cpp.o: /opt/ros/kinetic/include/nav_msgs/Path.h
 CMakeFiles/path_finding.dir/src/path_finding.cpp.o: /opt/ros/kinetic/include/pcl_conversions/pcl_conversions.h
 CMakeFiles/path_finding.dir/src/path_finding.cpp.o: /opt/ros/kinetic/include/pcl_msgs/ModelCoefficients.h
@@ -360,7 +361,10 @@ CMakeFiles/path_finding.dir/src/path_finding.cpp.o: /opt/ros/kinetic/include/ros
 CMakeFiles/path_finding.dir/src/path_finding.cpp.o: /opt/ros/kinetic/include/sensor_msgs/Image.h
 CMakeFiles/path_finding.dir/src/path_finding.cpp.o: /opt/ros/kinetic/include/sensor_msgs/PointCloud2.h
 CMakeFiles/path_finding.dir/src/path_finding.cpp.o: /opt/ros/kinetic/include/sensor_msgs/PointField.h
+CMakeFiles/path_finding.dir/src/path_finding.cpp.o: /opt/ros/kinetic/include/std_msgs/ColorRGBA.h
 CMakeFiles/path_finding.dir/src/path_finding.cpp.o: /opt/ros/kinetic/include/std_msgs/Header.h
+CMakeFiles/path_finding.dir/src/path_finding.cpp.o: /opt/ros/kinetic/include/visualization_msgs/Marker.h
+CMakeFiles/path_finding.dir/src/path_finding.cpp.o: /opt/ros/kinetic/include/visualization_msgs/MarkerArray.h
 CMakeFiles/path_finding.dir/src/path_finding.cpp.o: /opt/ros/kinetic/include/xmlrpcpp/XmlRpcDecl.h
 CMakeFiles/path_finding.dir/src/path_finding.cpp.o: /opt/ros/kinetic/include/xmlrpcpp/XmlRpcValue.h
 CMakeFiles/path_finding.dir/src/path_finding.cpp.o: /usr/include/eigen3/Eigen/Cholesky

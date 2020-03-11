@@ -6,11 +6,15 @@
 #include <nav_msgs/Path.h>
 #include <pcl_conversions/pcl_conversions.h>
 #include "path_finding.h"
+#include <visualization_msgs/Marker.h>
+#include <visualization_msgs/MarkerArray.h>
 
 void rcvMap_CB(const sensor_msgs::PointCloud2 &map);
 void rcvTarget_CB(const nav_msgs::Path &target);
 void mapParamConfig(mapParam &param,ros::NodeHandle n);
-a_star aStar_G;
+void visGridPath(std::vector<Eigen::Vector3d> node,int color,visualization_msgs::Marker &node_vis);
+
+a_star *aStar_Ptr;
 int main(int argc,char **argv)
 {
     //订阅地图信息、目标点信息，设置当前位置为（0,0,0）
@@ -21,21 +25,27 @@ int main(int argc,char **argv)
     ros::Publisher path_pub;
     map_sub = n.subscribe("/random_map_node/global_map",1,rcvMap_CB);
     target_sub = n.subscribe("/waypoint_generator/waypoints",1,rcvTarget_CB);
-    path_pub = n.advertise<sensor_msgs::PointCloud2>("path_vis",1);
+    path_pub = n.advertise<visualization_msgs::Marker>("path_vis",1);
 
     mapParam param;
     mapParamConfig(param,n);
-    aStar_G.setMapParam(param);
+    aStar_Ptr = new a_star(param);
 
     ros::Rate rate(100);
     bool status = ros::ok();
     ROS_INFO("initial finished ,wait for map");
     while(status)
     {
-        aStar_G.findPath();
-        if(!aStar_G.getPath().empty())
+        aStar_Ptr->findPath();
+        if(!aStar_Ptr->getPath().empty())
         {
-            ROS_INFO("need to publish path msg !!!");
+            visualization_msgs::Marker node_vis;
+            node_vis.scale.x = param.resolution;
+            node_vis.scale.y = param.resolution;
+            node_vis.scale.z = param.resolution;
+
+            visGridPath(aStar_Ptr->getPath(),0,node_vis);
+            path_pub.publish(node_vis);
         }
         ros::spinOnce();
         status = ros::ok();
@@ -60,7 +70,7 @@ void rcvMap_CB(const sensor_msgs::PointCloud2 &map)
     pcl::PointCloud<pcl::PointXYZ> map_pcl;
     pcl::fromROSMsg(map,map_pcl);
     //给算法类设定地图信息
-    aStar_G.setMap(map_pcl);
+    aStar_Ptr->setMap(map_pcl);
 
 }
 
@@ -80,7 +90,7 @@ void rcvTarget_CB(const nav_msgs::Path &target)
                 target.poses[0].pose.position.y,
                 target.poses[0].pose.position.z;
     ROS_INFO("get target point success ! x:%f y:%f z:%f",target3d[0],target3d[1],target3d[2]);
-    aStar_G.setTarget(target3d);
+    aStar_Ptr->setTarget(target3d);
 }
 
 void mapParamConfig(mapParam &param,ros::NodeHandle n)
@@ -100,5 +110,42 @@ void mapParamConfig(mapParam &param,ros::NodeHandle n)
     param.max_y_id = (int)(param.y_size*param.inv_resolution);
     param.max_z_id = (int)(param.z_size*param.inv_resolution);
 }
+void visGridPath(std::vector<Eigen::Vector3d> node,int color,visualization_msgs::Marker &node_vis)
+{
+
+    node_vis.header.frame_id = "world";
+    node_vis.header.stamp = ros::Time::now();
+
+    node_vis.ns = "astar_path";
+
+    node_vis.type = visualization_msgs::Marker::CUBE_LIST;
+    node_vis.action = visualization_msgs::Marker::ADD;
+    node_vis.id = 0;
+
+    node_vis.pose.orientation.x = 0.0;
+    node_vis.pose.orientation.y = 0.0;
+    node_vis.pose.orientation.z = 0.0;
+    node_vis.pose.orientation.w = 1.0;
+
+    node_vis.color.a = 1.0;
+    node_vis.color.r = 0.0;
+    node_vis.color.g = 1.0;
+    node_vis.color.b = 0.0;
+
+
+
+    geometry_msgs::Point pt;
+    for(int i = 0; i < int(node.size()); i++)
+    {
+        Eigen::Vector3d coord = node[i];
+        pt.x = coord(0);
+        pt.y = coord(1);
+        pt.z = coord(2);
+
+        node_vis.points.push_back(pt);
+    }
+
+}
+
 
 

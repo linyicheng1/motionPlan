@@ -1,49 +1,44 @@
 #include "A_star.h"
 
-a_star::a_star()
+a_star::a_star(mapParam param)
 {
     has_map_ = false;
     has_target_ = false;
-    setStart(Eigen::Vector3d(0,0,0));
 
-    GridNodeMap = new GridNodePtr **[param_.max_x_id];
-    for(int i=0;i<param_.max_x_id;i++)
-    {
-        GridNodeMap[i] = new GridNodePtr *[param_.max_y_id];
-        for(int j=0;j<param_.max_y_id;j++)
-        {
-            GridNodeMap[i][j] = new GridNodePtr [param_.max_z_id];
-            for(int k = 0;k<param_.max_z_id;k++)
-            {
-                Eigen::Vector3i tmpId(i,j,k);
-                Eigen::Vector3d pos = gridIndex2coord(tmpId);
-                GridNodeMap[i][j][k] = new GridNode(tmpId,pos);
-            }
-        }
-    }
+    setMapParam(param);
+
+    setStart(Eigen::Vector3d(0,0,0));
+    resetMap();
 }
 void a_star::findPath()
 {
     if(has_map_&&has_target_)
     {//得到地图信息并且目标点位置更新了，开始搜索路径
+        has_target_ = false;
         std::cout<<"/**************A Star path finding begin ***********/"<<std::endl;
         openSet.clear();
+        path_.clear();
+        resetMap();
         GridNodePtr currentPtr = NULL;
         GridNodePtr neighborPtr = NULL;
 
         startNodePtr->gScore = 0;
-        startNodePtr->fScore = 0;
+        startNodePtr->fScore = getHeu(startNodePtr,targetNodePtr);
         startNodePtr->nodeMapIt = openSet.insert(std::make_pair(startNodePtr->fScore,startNodePtr));
 
         std::vector<GridNodePtr> neighborsPtr;
         std::vector<double> edgeCost;
-        while(openSet.empty())
+        while(!openSet.empty())
         {
             currentPtr = openSet.begin()->second;
             openSet.erase(currentPtr->nodeMapIt);
+            currentPtr->id = 1;
             if(currentPtr->index == target_id_)
             {
+                delete targetNodePtr;
+                targetNodePtr = currentPtr;
                 calPath();
+                setStart(currentPtr->coord);
                 std::cout<<"A* has find the target point!"<<std::endl;
                 return;
             }
@@ -51,12 +46,32 @@ void a_star::findPath()
             for(int i=0;i<neighborsPtr.size();i++)
             {
                 neighborPtr = neighborsPtr[i];
-                neighborPtr->fScore = currentPtr->fScore + edgeCost[i];
-                neighborPtr->dir = currentPtr->index;
-                neighborPtr->nodeMapIt = openSet.insert(std::make_pair(neighborPtr->fScore,neighborPtr));
+                if(neighborPtr->id == 0)
+                {
+                    neighborPtr->gScore = currentPtr->gScore + edgeCost[i];
+                    neighborPtr->fScore = getHeu(neighborPtr,targetNodePtr);
+                    neighborPtr->dir = currentPtr->index;
+                    neighborPtr->nodeMapIt = openSet.insert(std::make_pair(neighborPtr->fScore+neighborPtr->gScore,neighborPtr));
+                    neighborPtr->id = -1;
+                }
+                else if(neighborPtr->id == -1)
+                {
+                    double tmp_gScore = currentPtr->gScore + edgeCost[i];
+                    if(tmp_gScore<neighborPtr->gScore)
+                    {
+                        openSet.erase(neighborPtr->nodeMapIt);
+                        neighborPtr->gScore = tmp_gScore;
+                        neighborPtr->dir = currentPtr->index;
+                        neighborPtr->nodeMapIt = openSet.insert(std::make_pair(neighborPtr->fScore+neighborPtr->gScore,neighborPtr));
+                    }
+                }
+                else
+                {
+                    continue;
+                }
             }
         }
-        has_target_ = false;
+
     }
     else
     {
@@ -171,6 +186,7 @@ std::vector<Eigen::Vector3d> a_star::calPath()
         nowPtr = GridNodeMap[nowPtr->dir[0]][nowPtr->dir[1]][nowPtr->dir[2]];
         if(nowPtr->index == start_id_)
         {
+            gridPath.push_back(nowPtr);
             break;
         }
         else
@@ -186,4 +202,54 @@ std::vector<Eigen::Vector3d> a_star::calPath()
     return path_;
 }
 
+double a_star::getHeu(GridNodePtr node1, GridNodePtr node2)
+{
+    double tempDistance[3];
+    double length = 0;
+    tempDistance[0] = fabsf(node1->coord[0] - node2->coord[0]);
+    tempDistance[1] = fabsf(node1->coord[1] - node2->coord[1]);
+    tempDistance[2] = fabsf(node1->coord[2] - node2->coord[2]);
+    double min = tempDistance[0];
+    int Index[2];
+    for(int i=1;i<3;i++)
+    {
+        if(min>tempDistance[i])
+        {
+            min = tempDistance[i];
+            Index[i-1] = 0;
+        }
+        else
+        {
+            Index[i-1] = i;
+        }
+    }
+    length += sqrt(3)*min;
+    double min2 = tempDistance[Index[0]];
+    if(min2>tempDistance[Index[1]])
+    {
+        min2 = tempDistance[Index[1]];
+    }
+    length += sqrt(2)*(min2-min);
+    length += fabsf(tempDistance[Index[1]]-tempDistance[Index[0]]);
+    return length;
+}
+
+void a_star::resetMap()
+{
+    GridNodeMap = new GridNodePtr **[param_.max_x_id];
+    for(int i=0;i<param_.max_x_id;i++)
+    {
+        GridNodeMap[i] = new GridNodePtr *[param_.max_y_id];
+        for(int j=0;j<param_.max_y_id;j++)
+        {
+            GridNodeMap[i][j] = new GridNodePtr [param_.max_z_id];
+            for(int k = 0;k<param_.max_z_id;k++)
+            {
+                Eigen::Vector3i tmpId(i,j,k);
+                Eigen::Vector3d pos = gridIndex2coord(tmpId);
+                GridNodeMap[i][j][k] = new GridNode(tmpId,pos);
+            }
+        }
+    }
+}
 

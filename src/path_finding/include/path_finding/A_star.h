@@ -36,7 +36,7 @@ struct GridNode
 class a_star:public path_finding
 {
 public:
-    a_star();
+    a_star(mapParam param);
     void findPath(void);
     void setMap(pcl::PointCloud<pcl::PointXYZ> cloud);
     void setStart(Eigen::Vector3d start);//设置初始位置
@@ -52,11 +52,12 @@ private:
     std::multimap<double,GridNodePtr> openSet;
     GridNodePtr *** GridNodeMap;
     uint8_t * obj;
-    uint8_t * test;
+    double getHeu(GridNodePtr node1,GridNodePtr node2);
     void getNeighborPt(GridNodePtr currentPt,std::vector<GridNodePtr> &neighborPtr,std::vector<double> &cost);
     Eigen::Vector3i coord2gridIndex(const Eigen::Vector3d &pt);
     Eigen::Vector3d gridIndex2coord(const Eigen::Vector3i &index);
     std::vector<Eigen::Vector3d> calPath();
+    void resetMap(void);
 };
 
 #endif //__A_STAR_H
