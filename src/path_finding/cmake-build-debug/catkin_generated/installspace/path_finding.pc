@@ -1,0 +1,8 @@
+prefix=/usr/local
+
+Name: path_finding
+Description: Description of path_finding
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: 

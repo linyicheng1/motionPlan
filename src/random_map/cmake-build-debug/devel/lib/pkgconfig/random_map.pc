@@ -1,0 +1,8 @@
+prefix=/home/lyc/motionPlan/src/random_map/cmake-build-debug/devel
+
+Name: random_map
+Description: Description of random_map
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
