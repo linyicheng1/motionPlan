@@ -1,8 +1,0 @@
-prefix=/home/lyc/motionPlan/src/path_finding/cmake-build-debug/devel
-
-Name: path_finding
-Description: Description of path_finding
-Version: 0.0.0
-Cflags: -I/home/lyc/motionPlan/src/path_finding/include
-Libs: -L${prefix}/lib 
-Requires: 

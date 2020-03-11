@@ -1,1 +1,0 @@
-/usr/bin/c++ -fPIC   -g   -shared -Wl,-soname,libsample_base.so -o devel/lib/libsample_base.so CMakeFiles/sample_base.dir/src/sample_base.cpp.o 
