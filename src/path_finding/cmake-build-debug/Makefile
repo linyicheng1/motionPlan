@@ -714,33 +714,6 @@ src/A_star.cpp.s:
 	$(MAKE) -f CMakeFiles/path_finding.dir/build.make CMakeFiles/path_finding.dir/src/A_star.cpp.s
 .PHONY : src/A_star.cpp.s
 
-src/JPS.o: src/JPS.cpp.o
-
-.PHONY : src/JPS.o
-
-# target to build an object file
-src/JPS.cpp.o:
-	$(MAKE) -f CMakeFiles/path_finding.dir/build.make CMakeFiles/path_finding.dir/src/JPS.cpp.o
-.PHONY : src/JPS.cpp.o
-
-src/JPS.i: src/JPS.cpp.i
-
-.PHONY : src/JPS.i
-
-# target to preprocess a source file
-src/JPS.cpp.i:
-	$(MAKE) -f CMakeFiles/path_finding.dir/build.make CMakeFiles/path_finding.dir/src/JPS.cpp.i
-.PHONY : src/JPS.cpp.i
-
-src/JPS.s: src/JPS.cpp.s
-
-.PHONY : src/JPS.s
-
-# target to generate assembly for a file
-src/JPS.cpp.s:
-	$(MAKE) -f CMakeFiles/path_finding.dir/build.make CMakeFiles/path_finding.dir/src/JPS.cpp.s
-.PHONY : src/JPS.cpp.s
-
 src/path_finding.o: src/path_finding.cpp.o
 
 .PHONY : src/path_finding.o
@@ -851,9 +824,6 @@ help:
 	@echo "... src/A_star.o"
 	@echo "... src/A_star.i"
 	@echo "... src/A_star.s"
-	@echo "... src/JPS.o"
-	@echo "... src/JPS.i"
-	@echo "... src/JPS.s"
 	@echo "... src/path_finding.o"
 	@echo "... src/path_finding.i"
 	@echo "... src/path_finding.s"

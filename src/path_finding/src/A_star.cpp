@@ -1,5 +1,9 @@
 #include "A_star.h"
 
+/**
+ * @biref 初始化地图及地图参数，设置起点为(0,0,0)
+ * @param param
+ * */
 a_star::a_star(mapParam param)
 {
     has_map_ = false;
@@ -10,6 +14,7 @@ a_star::a_star(mapParam param)
     setStart(Eigen::Vector3d(0,0,0));
     resetMap();
 }
+
 void a_star::findPath()
 {
     if(has_map_&&has_target_)
@@ -83,8 +88,9 @@ void a_star::setMap(pcl::PointCloud<pcl::PointXYZ> cloud)
     map_ = cloud;
     has_map_ = true;
 
-    obj = new uint8_t[25000];
-    memset(obj,0,25000* sizeof(uint8_t));
+    obj = new uint8_t[param_.max_x_id*param_.max_y_id*param_.max_z_id];
+    memset(obj,0,param_.max_x_id*param_.max_y_id*param_.max_z_id* sizeof(uint8_t));
+
     for(int i=0;i<(int)cloud.points.size();i++)
     {
         if(cloud.points[i].x<param_.map_lower[0]||

@@ -787,9 +787,6 @@
 		<Unit filename="/home/lyc/motionPlan/src/path_finding/src/A_star.cpp">
 			<Option target="path_finding"/>
 		</Unit>
-		<Unit filename="/home/lyc/motionPlan/src/path_finding/src/JPS.cpp">
-			<Option target="path_finding"/>
-		</Unit>
 		<Unit filename="/home/lyc/motionPlan/src/path_finding/src/path_finding.cpp">
 			<Option target="path_finding"/>
 		</Unit>

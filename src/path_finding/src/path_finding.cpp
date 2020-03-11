@@ -1,6 +1,6 @@
 #include "A_star.h"
 #include "JPS.h"
-#include "sample_base.cpp"
+#include "sample_base.h"
 #include <ros/ros.h>
 #include <sensor_msgs/PointCloud2.h>
 #include <nav_msgs/Path.h>
@@ -13,8 +13,11 @@ void rcvMap_CB(const sensor_msgs::PointCloud2 &map);
 void rcvTarget_CB(const nav_msgs::Path &target);
 void mapParamConfig(mapParam &param,ros::NodeHandle n);
 void visGridPath(std::vector<Eigen::Vector3d> node,int color,visualization_msgs::Marker &node_vis);
+void visRRTStarPath(std::vector<Eigen::Vector3d> nodes,visualization_msgs::Marker &Line,visualization_msgs::Marker &Points);
 
 a_star *aStar_Ptr;
+sample_base *RRT_Star_Ptr;
+
 int main(int argc,char **argv)
 {
     //订阅地图信息、目标点信息，设置当前位置为（0,0,0）
@@ -22,14 +25,17 @@ int main(int argc,char **argv)
     ros::init(argc,argv,"path_finding");
     ros::NodeHandle n("~");
     ros::Subscriber map_sub,target_sub;
-    ros::Publisher path_pub;
+    ros::Publisher path_pub,line_pub,point_pub;
     map_sub = n.subscribe("/random_map_node/global_map",1,rcvMap_CB);
     target_sub = n.subscribe("/waypoint_generator/waypoints",1,rcvTarget_CB);
     path_pub = n.advertise<visualization_msgs::Marker>("path_vis",1);
+    line_pub = n.advertise<visualization_msgs::Marker>("line_vis",1);
+    point_pub = n.advertise<visualization_msgs::Marker>("point_vis",1);
 
     mapParam param;
     mapParamConfig(param,n);
     aStar_Ptr = new a_star(param);
+    RRT_Star_Ptr = new sample_base(param,PLANNER_RRTSTAR);
 
     ros::Rate rate(100);
     bool status = ros::ok();
@@ -37,6 +43,8 @@ int main(int argc,char **argv)
     while(status)
     {
         aStar_Ptr->findPath();
+        RRT_Star_Ptr->findPath();
+
         if(!aStar_Ptr->getPath().empty())
         {
             visualization_msgs::Marker node_vis;
@@ -44,8 +52,19 @@ int main(int argc,char **argv)
             node_vis.scale.y = param.resolution;
             node_vis.scale.z = param.resolution;
 
-            visGridPath(aStar_Ptr->getPath(),0,node_vis);
+            visGridPath(aStar_Ptr->getPath(),RED,node_vis);
             path_pub.publish(node_vis);
+        }
+        if(!RRT_Star_Ptr->getPath().empty())
+        {
+            visualization_msgs::Marker Points,Line;
+            Points.scale.x = param.resolution/2;
+            Points.scale.y = param.resolution/2;
+            Line.scale.x   = param.resolution/2;
+
+            visRRTStarPath(RRT_Star_Ptr->getPath(),Line,Points);
+            point_pub.publish(Points);
+            line_pub.publish(Line);
         }
         ros::spinOnce();
         status = ros::ok();
@@ -71,7 +90,7 @@ void rcvMap_CB(const sensor_msgs::PointCloud2 &map)
     pcl::fromROSMsg(map,map_pcl);
     //给算法类设定地图信息
     aStar_Ptr->setMap(map_pcl);
-
+    RRT_Star_Ptr->setMap(map_pcl);
 }
 
 /**
@@ -91,6 +110,7 @@ void rcvTarget_CB(const nav_msgs::Path &target)
                 target.poses[0].pose.position.z;
     ROS_INFO("get target point success ! x:%f y:%f z:%f",target3d[0],target3d[1],target3d[2]);
     aStar_Ptr->setTarget(target3d);
+    RRT_Star_Ptr->setTarget(target3d);
 }
 
 void mapParamConfig(mapParam &param,ros::NodeHandle n)
@@ -128,11 +148,9 @@ void visGridPath(std::vector<Eigen::Vector3d> node,int color,visualization_msgs:
     node_vis.pose.orientation.w = 1.0;
 
     node_vis.color.a = 1.0;
-    node_vis.color.r = 0.0;
-    node_vis.color.g = 1.0;
+    node_vis.color.r = 1.0;
+    node_vis.color.g = 0.0;
     node_vis.color.b = 0.0;
-
-
 
     geometry_msgs::Point pt;
     for(int i = 0; i < int(node.size()); i++)
@@ -147,5 +165,37 @@ void visGridPath(std::vector<Eigen::Vector3d> node,int color,visualization_msgs:
 
 }
 
+void visRRTStarPath(std::vector<Eigen::Vector3d> nodes,visualization_msgs::Marker &Line,visualization_msgs::Marker &Points)
+{
+    Points.header.frame_id = Line.header.frame_id = "world";
+    Points.header.stamp    = Line.header.stamp    = ros::Time::now();
+    Points.ns              = Line.ns              = "demo_node/RRTstarPath";
+    Points.action          = Line.action          = visualization_msgs::Marker::ADD;
+    Points.pose.orientation.w = Line.pose.orientation.w = 1.0;
+    Points.id = 0;
+    Line.id   = 1;
+    Points.type = visualization_msgs::Marker::POINTS;
+    Line.type   = visualization_msgs::Marker::LINE_STRIP;
 
+
+
+    //points are green and Line Strip is blue
+    Points.color.g = 1.0f;
+    Points.color.a = 1.0;
+    Line.color.b   = 1.0;
+    Line.color.a   = 1.0;
+
+    geometry_msgs::Point pt;
+    for(int i = 0; i < int(nodes.size()); i++)
+    {
+        Eigen::Vector3d coord = nodes[i];
+        pt.x = coord(0);
+        pt.y = coord(1);
+        pt.z = coord(2);
+
+        Points.points.push_back(pt);
+        Line.points.push_back(pt);
+    }
+
+}
 

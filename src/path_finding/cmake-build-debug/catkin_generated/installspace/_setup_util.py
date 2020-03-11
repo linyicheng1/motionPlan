@@ -270,7 +270,7 @@ if __name__ == '__main__':
 
         if not args.local:
             # environment at generation time
-            CMAKE_PREFIX_PATH = '/home/lyc/catkin_ws/devel;/home/lyc/motionPlan/devel;/home/lyc/lab_comany/catkin_make/devel;/opt/ros/kinetic'.split(';')
+            CMAKE_PREFIX_PATH = '/home/lyc/lab_comany/catkin_make/devel;/opt/ros/kinetic'.split(';')
         else:
             # don't consider any other prefix path than this one
             CMAKE_PREFIX_PATH = []

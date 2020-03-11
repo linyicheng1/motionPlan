@@ -27,8 +27,8 @@ include_directories(
 add_executable(${PROJECT_NAME} 
     src/path_finding.cpp
     src/A_star.cpp
-    src/JPS.cpp
-    src/sample_base.cpp 
+    #src/JPS.cpp
+    src/sample_base.cpp
 )
 
 target_link_libraries(${PROJECT_NAME}

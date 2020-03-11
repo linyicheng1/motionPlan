@@ -23,7 +23,12 @@ typedef struct mapParam
     int max_z_id;
 }mapParam;
 
-
+enum color
+{
+    RED,
+    BLUE,
+    GREEN
+};
 //路径规划类的基类
 //各路径规划算法需要继承该类，从而统一接口
 class path_finding
