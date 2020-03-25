@@ -2,46 +2,46 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
     <generated>
-      <config projectName="path_finding" targetName="roscpp_generate_messages_lisp" />
-      <config projectName="path_finding" targetName="clean_test_results" />
-      <config projectName="path_finding" targetName="visualization_msgs_generate_messages_lisp" />
-      <config projectName="path_finding" targetName="gtest" />
-      <config projectName="path_finding" targetName="roscpp_generate_messages_eus" />
-      <config projectName="path_finding" targetName="gmock" />
-      <config projectName="path_finding" targetName="sensor_msgs_generate_messages_nodejs" />
-      <config projectName="path_finding" targetName="sensor_msgs_generate_messages_cpp" />
-      <config projectName="path_finding" targetName="tests" />
-      <config projectName="path_finding" targetName="doxygen" />
-      <config projectName="path_finding" targetName="visualization_msgs_generate_messages_cpp" />
-      <config projectName="path_finding" targetName="std_msgs_generate_messages_cpp" />
-      <config projectName="path_finding" targetName="gtest_main" />
-      <config projectName="path_finding" targetName="roscpp_generate_messages_py" />
-      <config projectName="path_finding" targetName="gmock_main" />
-      <config projectName="path_finding" targetName="run_tests" />
-      <config projectName="path_finding" targetName="path_finding" />
-      <config projectName="path_finding" targetName="sensor_msgs_generate_messages_lisp" />
-      <config projectName="path_finding" targetName="rosgraph_msgs_generate_messages_cpp" />
-      <config projectName="path_finding" targetName="std_msgs_generate_messages_nodejs" />
-      <config projectName="path_finding" targetName="sensor_msgs_generate_messages_py" />
-      <config projectName="path_finding" targetName="rosgraph_msgs_generate_messages_lisp" />
-      <config projectName="path_finding" targetName="rosgraph_msgs_generate_messages_py" />
-      <config projectName="path_finding" targetName="geometry_msgs_generate_messages_cpp" />
-      <config projectName="path_finding" targetName="visualization_msgs_generate_messages_nodejs" />
-      <config projectName="path_finding" targetName="std_msgs_generate_messages_lisp" />
-      <config projectName="path_finding" targetName="roscpp_generate_messages_cpp" />
-      <config projectName="path_finding" targetName="geometry_msgs_generate_messages_py" />
-      <config projectName="path_finding" targetName="visualization_msgs_generate_messages_eus" />
-      <config projectName="path_finding" targetName="sensor_msgs_generate_messages_eus" />
-      <config projectName="path_finding" targetName="std_msgs_generate_messages_eus" />
       <config projectName="path_finding" targetName="download_extra_data" />
-      <config projectName="path_finding" targetName="geometry_msgs_generate_messages_nodejs" />
-      <config projectName="path_finding" targetName="geometry_msgs_generate_messages_lisp" />
-      <config projectName="path_finding" targetName="rosgraph_msgs_generate_messages_nodejs" />
-      <config projectName="path_finding" targetName="visualization_msgs_generate_messages_py" />
-      <config projectName="path_finding" targetName="rosgraph_msgs_generate_messages_eus" />
-      <config projectName="path_finding" targetName="std_msgs_generate_messages_py" />
-      <config projectName="path_finding" targetName="roscpp_generate_messages_nodejs" />
+      <config projectName="path_finding" targetName="std_msgs_generate_messages_eus" />
+      <config projectName="path_finding" targetName="roscpp_generate_messages_lisp" />
+      <config projectName="path_finding" targetName="geometry_msgs_generate_messages_cpp" />
+      <config projectName="path_finding" targetName="geometry_msgs_generate_messages_py" />
       <config projectName="path_finding" targetName="geometry_msgs_generate_messages_eus" />
+      <config projectName="path_finding" targetName="sensor_msgs_generate_messages_cpp" />
+      <config projectName="path_finding" targetName="run_tests" />
+      <config projectName="path_finding" targetName="rosgraph_msgs_generate_messages_nodejs" />
+      <config projectName="path_finding" targetName="rosgraph_msgs_generate_messages_cpp" />
+      <config projectName="path_finding" targetName="sensor_msgs_generate_messages_py" />
+      <config projectName="path_finding" targetName="visualization_msgs_generate_messages_nodejs" />
+      <config projectName="path_finding" targetName="gmock" />
+      <config projectName="path_finding" targetName="visualization_msgs_generate_messages_lisp" />
+      <config projectName="path_finding" targetName="sensor_msgs_generate_messages_lisp" />
+      <config projectName="path_finding" targetName="std_msgs_generate_messages_cpp" />
+      <config projectName="path_finding" targetName="roscpp_generate_messages_eus" />
+      <config projectName="path_finding" targetName="path_finding" />
+      <config projectName="path_finding" targetName="std_msgs_generate_messages_lisp" />
+      <config projectName="path_finding" targetName="visualization_msgs_generate_messages_eus" />
+      <config projectName="path_finding" targetName="clean_test_results" />
+      <config projectName="path_finding" targetName="sensor_msgs_generate_messages_nodejs" />
+      <config projectName="path_finding" targetName="geometry_msgs_generate_messages_lisp" />
+      <config projectName="path_finding" targetName="roscpp_generate_messages_py" />
+      <config projectName="path_finding" targetName="tests" />
+      <config projectName="path_finding" targetName="visualization_msgs_generate_messages_py" />
+      <config projectName="path_finding" targetName="doxygen" />
+      <config projectName="path_finding" targetName="rosgraph_msgs_generate_messages_lisp" />
+      <config projectName="path_finding" targetName="roscpp_generate_messages_cpp" />
+      <config projectName="path_finding" targetName="gmock_main" />
+      <config projectName="path_finding" targetName="geometry_msgs_generate_messages_nodejs" />
+      <config projectName="path_finding" targetName="gtest" />
+      <config projectName="path_finding" targetName="gtest_main" />
+      <config projectName="path_finding" targetName="sensor_msgs_generate_messages_eus" />
+      <config projectName="path_finding" targetName="roscpp_generate_messages_nodejs" />
+      <config projectName="path_finding" targetName="std_msgs_generate_messages_nodejs" />
+      <config projectName="path_finding" targetName="rosgraph_msgs_generate_messages_eus" />
+      <config projectName="path_finding" targetName="rosgraph_msgs_generate_messages_py" />
+      <config projectName="path_finding" targetName="visualization_msgs_generate_messages_cpp" />
+      <config projectName="path_finding" targetName="std_msgs_generate_messages_py" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -77,7 +77,7 @@
       <file leaf-file-name="A_star.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/A_star.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
+            <state relative-caret-position="5175">
               <caret line="115" column="24" selection-start-line="115" selection-start-column="24" selection-end-line="115" selection-end-column="24" />
               <folding>
                 <marker date="1583914506698" expanded="true" signature="2092:2569" ph="..." />
@@ -94,7 +94,7 @@
       <file leaf-file-name="sample_base.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/include/path_finding/sample_base.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
+            <state relative-caret-position="2295">
               <caret line="51" column="5" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
               <folding>
                 <element signature="e#49#74#0" expanded="true" />
@@ -106,7 +106,7 @@
       <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
+            <state relative-caret-position="1485">
               <caret line="33" selection-start-line="33" selection-end-line="33" />
             </state>
           </provider>
@@ -115,7 +115,7 @@
       <file leaf-file-name="A_star.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/include/path_finding/A_star.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
+            <state relative-caret-position="1845">
               <caret line="41" column="13" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
             </state>
           </provider>
@@ -124,7 +124,7 @@
       <file leaf-file-name="path_finding.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/path_finding.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
+            <state relative-caret-position="4725">
               <caret line="105" column="5" selection-start-line="105" selection-start-column="5" selection-end-line="105" selection-end-column="5" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
@@ -136,8 +136,8 @@
       <file leaf-file-name="path_finding.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/include/path_finding/path_finding.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="430">
-              <caret line="41" column="43" lean-forward="true" selection-start-line="41" selection-start-column="43" selection-end-line="41" selection-end-column="84" />
+            <state relative-caret-position="1845">
+              <caret line="41" column="43" selection-start-line="41" selection-start-column="43" selection-end-line="41" selection-end-column="84" />
               <folding>
                 <element signature="e#51#68#0" expanded="true" />
               </folding>
@@ -149,7 +149,7 @@
         <entry file="file://$PROJECT_DIR$/src/sample_base.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="360">
-              <caret line="83" column="18" lean-forward="true" selection-start-line="83" selection-start-column="18" selection-end-line="83" selection-end-column="18" />
+              <caret line="83" column="18" selection-start-line="83" selection-start-column="18" selection-end-line="83" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -157,7 +157,7 @@
       <file leaf-file-name="shared_ptr_base.h" pinned="false" current-in-tab="false">
         <entry file="file:///usr/include/c++/5/bits/shared_ptr_base.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
+            <state relative-caret-position="39645">
               <caret line="881" column="38" selection-start-line="881" selection-start-column="38" selection-end-line="881" selection-end-column="38" />
             </state>
           </provider>
@@ -198,8 +198,8 @@
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="2307" />
-    <option name="y" value="353" />
+    <option name="x" value="158" />
+    <option name="y" value="262" />
     <option name="width" value="1386" />
     <option name="height" value="832" />
   </component>
@@ -258,7 +258,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/CMakeLists.txt" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="CMakeSettings" />
+    <property name="settings.editor.selected.configurable" value="CPPToolchains" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -372,18 +372,20 @@
       <workItem from="1583824450974" duration="21059000" />
       <workItem from="1583893312999" duration="12803000" />
       <workItem from="1583912222474" duration="13186000" />
+      <workItem from="1584080623655" duration="227000" />
+      <workItem from="1584929952057" duration="7000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47048000" />
+    <option name="totallyTimeSpent" value="47282000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2307" y="353" width="1386" height="832" extended-state="0" />
+    <frame x="158" y="262" width="1386" height="832" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1969697" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26334777" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.2897959" />
       <window_info anchor="bottom" id="CMake" order="7" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
@@ -396,6 +398,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.2897959" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -416,6 +419,145 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/include/path_finding/JPS.h">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/path_finding/sample_base.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2295">
+          <caret line="51" column="5" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
+          <folding>
+            <element signature="e#49#74#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1485">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/path_finding/A_star.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1845">
+          <caret line="41" column="13" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/path_finding.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4725">
+          <caret line="105" column="5" selection-start-line="105" selection-start-column="5" selection-end-line="105" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/path_finding/path_finding.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1845">
+          <caret line="41" column="43" selection-start-line="41" selection-start-column="43" selection-end-line="41" selection-end-column="84" />
+          <folding>
+            <element signature="e#51#68#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/c++/5/bits/shared_ptr_base.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="39645">
+          <caret line="881" column="38" selection-start-line="881" selection-start-column="38" selection-end-line="881" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample_base.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3735">
+          <caret line="83" column="18" selection-start-line="83" selection-start-column="18" selection-end-line="83" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JPS.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/A_star.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5175">
+          <caret line="115" column="24" selection-start-line="115" selection-start-column="24" selection-end-line="115" selection-end-column="24" />
+          <folding>
+            <marker date="1583914506698" expanded="true" signature="2092:2569" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/path_finding/JPS.h">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/path_finding/sample_base.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2295">
+          <caret line="51" column="5" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
+          <folding>
+            <element signature="e#49#74#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1485">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/path_finding/A_star.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1845">
+          <caret line="41" column="13" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/path_finding.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4725">
+          <caret line="105" column="5" selection-start-line="105" selection-start-column="5" selection-end-line="105" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/path_finding/path_finding.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1845">
+          <caret line="41" column="43" lean-forward="true" selection-start-line="41" selection-start-column="43" selection-end-line="41" selection-end-column="84" />
+          <folding>
+            <element signature="e#51#68#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/c++/5/bits/shared_ptr_base.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="39645">
+          <caret line="881" column="38" selection-start-line="881" selection-start-column="38" selection-end-line="881" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample_base.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3735">
+          <caret line="83" column="18" lean-forward="true" selection-start-line="83" selection-start-column="18" selection-end-line="83" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/JPS.cpp">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -581,7 +723,7 @@
     </entry>
     <entry file="file:///usr/include/c++/5/bits/shared_ptr_base.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
+        <state relative-caret-position="39645">
           <caret line="881" column="38" selection-start-line="881" selection-start-column="38" selection-end-line="881" selection-end-column="38" />
         </state>
       </provider>
@@ -591,7 +733,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
+        <state relative-caret-position="1485">
           <caret line="33" selection-start-line="33" selection-end-line="33" />
         </state>
       </provider>
@@ -605,14 +747,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/include/path_finding/A_star.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
+        <state relative-caret-position="1845">
           <caret line="41" column="13" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/A_star.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
+        <state relative-caret-position="5175">
           <caret line="115" column="24" selection-start-line="115" selection-start-column="24" selection-end-line="115" selection-end-column="24" />
           <folding>
             <marker date="1583914506698" expanded="true" signature="2092:2569" ph="..." />
@@ -622,8 +764,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/include/path_finding/path_finding.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="41" column="43" lean-forward="true" selection-start-line="41" selection-start-column="43" selection-end-line="41" selection-end-column="84" />
+        <state relative-caret-position="1845">
+          <caret line="41" column="43" selection-start-line="41" selection-start-column="43" selection-end-line="41" selection-end-column="84" />
           <folding>
             <element signature="e#51#68#0" expanded="true" />
           </folding>
@@ -632,7 +774,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/include/path_finding/sample_base.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
+        <state relative-caret-position="2295">
           <caret line="51" column="5" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
           <folding>
             <element signature="e#49#74#0" expanded="true" />
@@ -642,7 +784,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/path_finding.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
+        <state relative-caret-position="4725">
           <caret line="105" column="5" selection-start-line="105" selection-start-column="5" selection-end-line="105" selection-end-column="5" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
@@ -653,7 +795,7 @@
     <entry file="file://$PROJECT_DIR$/src/sample_base.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
-          <caret line="83" column="18" lean-forward="true" selection-start-line="83" selection-start-column="18" selection-end-line="83" selection-end-column="18" />
+          <caret line="83" column="18" selection-start-line="83" selection-start-column="18" selection-end-line="83" selection-end-column="18" />
         </state>
       </provider>
     </entry>
