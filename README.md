@@ -16,4 +16,4 @@ rviz_plugins 为构建的3d目标位置。
 	Eigen3
 	PCL
 	OMPL
-![image](https://github.com/linyicheng1/motionPlan/tree/master/src/random_map/path.png)
+![image](https://github.com/linyicheng1/motionPlan/blob/master/src/random_map/path.png)
