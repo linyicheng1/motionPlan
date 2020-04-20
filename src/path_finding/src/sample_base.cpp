@@ -12,7 +12,7 @@ sample_base::sample_base(mapParam param,int type)
     setStart(Eigen::Vector3d(0,0,0));
 }
 
-void sample_base::setMap(pcl::PointCloud<pcl::PointXYZ> cloud)
+void sample_base::setMap(pcl::PointCloud<pcl::PointXYZ> cloud)//三维转一维
 {
     map_ = cloud;
     has_map_ = true;
@@ -60,11 +60,10 @@ void sample_base::findPath()
         ob::SpaceInformationPtr si(new ob::SpaceInformation(space));
         //障碍物检测
         si->setStateValidityChecker(isStateValid);
-        si->setup();
+        si->setup();//BUG
         //设置初始位置和目标位置
         ob::ScopedState<> start(space);
         ob::ScopedState<> target(space);
-
         for (int i = 0; i < 3; i++) {
             start[i] = startPoint_[i];
             target[i] = targetPoint_[i];
@@ -83,6 +82,7 @@ void sample_base::findPath()
         ompl::base::PlannerStatus solved = optimizingPlaner->solve(runTime);
         if(solved)
         {
+            std::cout<<"RTT has find the target point!"<<std::endl;
             og::PathGeometric* path = pdef->getSolutionPath()->as<og::PathGeometric>();
             std::vector<Eigen::Vector3d> path_points;
             for(int pathId = 0;pathId<path->getStateCount();pathId++)
@@ -106,7 +106,7 @@ void sample_base::findPath()
 }
 
 extern sample_base *RRT_Star_Ptr;
-bool isStateValid(const ompl::base::State *state)
+bool isStateValid(const ompl::base::State *state)//检测是否有障碍物
 {
     const ob::RealVectorStateSpace::StateType* state3D =
             state->as<ob::RealVectorStateSpace::StateType>();
@@ -116,11 +116,11 @@ bool isStateValid(const ompl::base::State *state)
              state3D->values[1],
              state3D->values[2];
     id = RRT_Star_Ptr->coord2gridIndex(coord);
-
+    //返回是否越界、
     return (id[0] >= 0 && id[0] < RRT_Star_Ptr->param_.max_x_id && id[1] >= 0 && id[1] < RRT_Star_Ptr->param_.max_y_id && id[2] >= 0 && id[2] < RRT_Star_Ptr->param_.max_z_id &&
             (RRT_Star_Ptr->obj[id[0]*RRT_Star_Ptr->param_.max_y_id*RRT_Star_Ptr->param_.max_z_id + id[1]*RRT_Star_Ptr->param_.max_z_id + id[2]] < 0.5));
 }
-Eigen::Vector3i sample_base::coord2gridIndex(const Eigen::Vector3d &pt)
+Eigen::Vector3i sample_base::coord2gridIndex(const Eigen::Vector3d &pt)//将三维坐标点转换成三维地图上一点
 {
     Eigen::Vector3i idx;
     idx <<  std::min( std::max( int( (pt[0] - param_.map_lower[0]) * param_.inv_resolution), 0), param_.max_x_id - 1),

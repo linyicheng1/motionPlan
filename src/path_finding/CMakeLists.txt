@@ -29,6 +29,7 @@ add_executable(${PROJECT_NAME}
     src/A_star.cpp
     #src/JPS.cpp
     src/sample_base.cpp
+    src/WPA.cpp
 )
 
 target_link_libraries(${PROJECT_NAME}

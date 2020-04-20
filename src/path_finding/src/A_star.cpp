@@ -17,7 +17,7 @@ a_star::a_star(mapParam param)
 
 void a_star::findPath()
 {
-    if(has_map_&&has_target_)
+    if(has_map_&&has_target_)//先看懂这些，再迁移
     {//得到地图信息并且目标点位置更新了，开始搜索路径
         has_target_ = false;
         std::cout<<"/**************A Star path finding begin ***********/"<<std::endl;

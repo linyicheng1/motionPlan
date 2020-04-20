@@ -8,6 +8,7 @@
 #include "path_finding.h"
 #include <visualization_msgs/Marker.h>
 #include <visualization_msgs/MarkerArray.h>
+#include "WPA.h"
 
 void rcvMap_CB(const sensor_msgs::PointCloud2 &map);
 void rcvTarget_CB(const nav_msgs::Path &target);
@@ -17,11 +18,13 @@ void visRRTStarPath(std::vector<Eigen::Vector3d> nodes,visualization_msgs::Marke
 
 a_star *aStar_Ptr;
 sample_base *RRT_Star_Ptr;
+WPA *WPA_Ptr;
 
 int main(int argc,char **argv)
 {
     //订阅地图信息、目标点信息，设置当前位置为（0,0,0）
     //发布路径、发布调试信息
+
     ros::init(argc,argv,"path_finding");
     ros::NodeHandle n("~");
     ros::Subscriber map_sub,target_sub;
@@ -36,6 +39,7 @@ int main(int argc,char **argv)
     mapParamConfig(param,n);
     aStar_Ptr = new a_star(param);
     RRT_Star_Ptr = new sample_base(param,PLANNER_RRTSTAR);
+    WPA_Ptr=new WPA(param);
 
     ros::Rate rate(100);
     bool status = ros::ok();
@@ -43,7 +47,8 @@ int main(int argc,char **argv)
     while(status)
     {
         aStar_Ptr->findPath();
-        RRT_Star_Ptr->findPath();
+        WPA_Ptr->findPath();
+        //RRT_Star_Ptr->findPath();
 
         if(!aStar_Ptr->getPath().empty())
         {
@@ -55,6 +60,19 @@ int main(int argc,char **argv)
             visGridPath(aStar_Ptr->getPath(),RED,node_vis);
             path_pub.publish(node_vis);
         }
+
+        if(!WPA_Ptr->getPath().empty())
+        {
+            visualization_msgs::Marker Points,Line;
+            Points.scale.x = param.resolution/2;
+            Points.scale.y = param.resolution/2;
+            Line.scale.x   = param.resolution/2;
+
+            visRRTStarPath(WPA_Ptr->getPath(),Line,Points);
+            point_pub.publish(Points);
+            line_pub.publish(Line);
+        }
+        /*
         if(!RRT_Star_Ptr->getPath().empty())
         {
             visualization_msgs::Marker Points,Line;
@@ -66,6 +84,7 @@ int main(int argc,char **argv)
             point_pub.publish(Points);
             line_pub.publish(Line);
         }
+        */
         ros::spinOnce();
         status = ros::ok();
         rate.sleep();
@@ -90,6 +109,7 @@ void rcvMap_CB(const sensor_msgs::PointCloud2 &map)
     pcl::fromROSMsg(map,map_pcl);
     //给算法类设定地图信息
     aStar_Ptr->setMap(map_pcl);
+    WPA_Ptr->setMap(map_pcl);
     RRT_Star_Ptr->setMap(map_pcl);
 }
 
@@ -110,6 +130,7 @@ void rcvTarget_CB(const nav_msgs::Path &target)
                 target.poses[0].pose.position.z;
     ROS_INFO("get target point success ! x:%f y:%f z:%f",target3d[0],target3d[1],target3d[2]);
     aStar_Ptr->setTarget(target3d);
+    WPA_Ptr->setTarget(target3d);
     RRT_Star_Ptr->setTarget(target3d);
 }
 
